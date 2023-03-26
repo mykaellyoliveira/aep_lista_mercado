@@ -1,13 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Lista de Compras</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="image"></div>
+    <div class="form">
+      <form method="post">
+        <h2> Novo Item </h2>
+        <section>
+          <label for="name">Nome do item</label>
+          <p><input type="text" name="name" autocomplete="name" required> </p>
+        </section>
+        <section>
+          <label for="category">Categoria</label>
+          <p><select id="category" name="category">
+              <option value="1"> Açougue </option>
+              <option value="2" selected> Bebidas </option>
+              <option value="3"> Derivados </option>
+              <option value="4"> Doces </option>
+              <option value="5"> Padaria </option>
+              <option value="5"> Outros </option>
+            </select></p>
+        </section>
+        <section>
+          <label for="price">Preço</label>
+          <p><input type="text" name="price" autocomplete="price" required></p>
+        </section>
+        <section>
+          <input id="arquivo" type="file" />
+          <div class="output"></div>
+        </section>
+        <button>Adicionar</button>
+      </form>
+    </div>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
