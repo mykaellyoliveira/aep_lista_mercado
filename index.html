@@ -2,49 +2,75 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/7609/7609933.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="src/style.css">
   <title>Lista de Compras</title>
 </head>
 
 <body>
-  <div class="container">
-    <div class="image"></div>
-    <div class="form">
-      <form method="post">
-        <h2> Novo Item </h2>
-        <section>
-          <label for="name">Nome do item</label>
-          <p><input type="text" name="name" autocomplete="name" required> </p>
-        </section>
-        <section>
-          <label for="category">Categoria</label>
-          <p><select id="category" name="category">
-              <option value="1"> Açougue </option>
-              <option value="2" selected> Bebidas </option>
-              <option value="3"> Derivados </option>
-              <option value="4"> Doces </option>
-              <option value="5"> Padaria </option>
-              <option value="5"> Outros </option>
-            </select></p>
-        </section>
-        <section>
-          <label for="price">Preço</label>
-          <p><input type="text" name="price" autocomplete="price" required></p>
-        </section>
-        <section>
-          <input id="arquivo" type="file" />
-          <div class="output"></div>
-        </section>
-        <button>Adicionar</button>
-      </form>
+  <div class="container-list">
+    <div class="title">
+      <h2>Sua Lista de Compras</h2>
+      <button><a href="list.html">+</a></button>
     </div>
+
+    <input type="text" placeholder="Busca" id="search">
+
+    <main></main>
+
+    <template id="item">
+      <style>
+        :host .itens {
+          width: 100%;
+          margin-top: 10px;
+          border: 1px solid black;
+          display: flex;
+          padding: 10px;
+          background-color: #ffffff;
+          border-radius: 10px;
+          border: 0 none;
+        }
+
+        :host .itens .info dt {
+          margin-left: 10px;
+          margin: 5px;
+          font-size: 15px;
+          font-weight: 600;
+        }
+
+        :host .itens .info dd {
+          color: rgb(41, 41, 41);
+        }
+      </style>
+      <section>
+        <div class="itens">
+          <div class="info">
+            <dl>
+              <dt>Nome do Item</dt>
+              <dd>
+                <slot name="name"></slot>
+              </dd>
+              <dt> Categoria </dt>
+              <dd>
+                <slot name="category"></slot>
+              </dd>
+              <dt>Preço</dt>
+              <dd>
+                <slot name="price"></slot>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </template>
   </div>
-  <script type="module" src="/src/main.ts"></script>
+  <script type="module" src="/src/counter.ts"></script>
 </body>
 
 </html>
